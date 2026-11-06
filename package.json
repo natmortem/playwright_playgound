@@ -1,0 +1,22 @@
+{
+  "name": "playwright_playgound",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natmortem/playwright_playgound.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/natmortem/playwright_playgound/issues"
+  },
+  "homepage": "https://github.com/natmortem/playwright_playgound#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "dotenv": "^18.0.9"
+  }
+}

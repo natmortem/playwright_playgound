@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Us</title>
+	<style>
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			font-family: system-ui, sans-serif;
+			color: #202b38;
+			background: #f3f6fa;
+		}
+		header {
+			background: #fff;
+			border-bottom: 1px solid #e1e7ef;
+		}
+		.header-inner {
+			max-width: 960px;
+			margin: auto;
+			padding: 18px 24px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+		}
+		.brand { font-size: 1.2rem; font-weight: 700; }
+		nav ul {
+			display: flex;
+			gap: 22px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		nav a { color: #405268; text-decoration: none; }
+		nav a:hover, nav a:focus { color: #1769d2; }
+		main { max-width: 680px; margin: 56px auto; padding: 0 24px; }
+		.card {
+			padding: 32px;
+			background: #fff;
+			border: 1px solid #e1e7ef;
+			border-radius: 12px;
+			box-shadow: 0 8px 24px #24364b0d;
+		}
+		h1 { margin: 0 0 8px; font-size: 1.8rem; }
+		.intro { margin: 0 0 26px; color: #5d6b7b; }
+		label { display: block; margin: 16px 0 6px; font-weight: 600; }
+		input, textarea {
+			width: 100%;
+			padding: 11px 12px;
+			border: 1px solid #cbd5e1;
+			border-radius: 6px;
+			font: inherit;
+		}
+		.checkbox-option {
+			display: flex;
+			align-items: flex-start;
+			gap: 10px;
+			margin-top: 16px;
+		}
+		.checkbox-option input {
+			width: auto;
+			margin: 4px 0 0;
+		}
+		.checkbox-option label { margin: 0; font-weight: 400; }
+		textarea { min-height: 120px; resize: vertical; }
+		button {
+			margin-top: 20px;
+			padding: 11px 18px;
+			border: 0;
+			border-radius: 6px;
+			color: #fff;
+			background: #1769d2;
+			font: inherit;
+			font-weight: 600;
+			cursor: pointer;
+		}
+		button:hover { background: #1056b0; }
+		@media (max-width: 520px) {
+			.header-inner { align-items: flex-start; flex-direction: column; }
+			nav ul { flex-wrap: wrap; gap: 12px 18px; }
+			main { margin: 32px auto; }
+			.card { padding: 24px; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header-inner">
+			<a class="brand" href="#home" style="color: inherit; text-decoration: none;">Playwright Playground</a>
+			<nav aria-label="Main menu">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main id="contact">
+		<section class="card" aria-labelledby="page-title">
+			<h1 id="page-title">Get in touch</h1>
+			<p class="intro">Send us a message and we’ll get back to you soon.</p>
+			<form action="send-message.php" method="post">
+				<label for="name">Name</label>
+				<input id="name" name="name" type="text" autocomplete="name" required>
+
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" autocomplete="email" required>
+
+				<label for="message">Message</label>
+				<textarea id="message" name="message" required></textarea>
+
+				<div class="checkbox-option">
+					<input id="personal-information-consent" name="personal_information_consent" type="checkbox" value="yes" required>
+					<label for="personal-information-consent">Would you like to share your personal information with "Playgound EOOD"?</label>
+				</div>
+
+				<div class="checkbox-option">
+					<input id="email-subscription" name="email_subscription" type="checkbox" value="yes">
+					<label for="email-subscription">Subscribe me to email updates</label>
+				</div>
+
+				<button type="submit">Send message</button>
+			</form>
+		</section>
+	</main>
+</body>
+</html>
