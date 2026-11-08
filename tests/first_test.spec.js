@@ -1,4 +1,3 @@
-//php -S 127.0.0.1:8000
 // @ts-check
 import { test, expect } from '@playwright/test';
 
@@ -13,8 +12,9 @@ test('send message successfully', async ({ page }) => {
   await page.goto('http://127.0.0.1:8000/');
 
   await page.getByLabel('Name').fill('John Doe');
-  await page.getByLabel('Email').fill('john.doe@example.com');
+  await page.getByRole('textbox', { name: 'Email' }).fill('john.doe@example.com');
   await page.getByLabel('Message').fill('Hello, this is a test message');
+  await page.getByRole('checkbox', { name: 'Would you like to share your personal information with "Playgound EOOD"?' }).check();
 
   // Click the send message button.
   await page.getByRole('button', { name: 'Send message' }).click();
@@ -29,8 +29,9 @@ test('send message without name', async ({ page }) => {
   //TestCase is successful if the user is not able to send a message without filling the name field.
   await page.goto('http://127.0.0.1:8000/');
 
-  await page.getByLabel('Email').fill('john.doe@example.com');
+  await page.getByRole('textbox', { name: 'Email' }).fill('john.doe@example.com');
   await page.getByLabel('Message').fill('Hello, this is a test message');
+  await page.getByRole('checkbox', { name: 'Would you like to share your personal information with "Playgound EOOD"?' }).check();
 
   // Click the send message button.
   await page.getByRole('button', { name: 'Send message' }).click();
@@ -44,6 +45,7 @@ test('send message without email', async ({ page }) => {
 
   await page.getByLabel('Name').fill('John Doe');
   await page.getByLabel('Message').fill('Hello, this is a test message');
+  await page.getByRole('checkbox', { name: 'Would you like to share your personal information with "Playgound EOOD"?' }).check();
 
   // Click the send message button.
   await page.getByRole('button', { name: 'Send message' }).click();
@@ -56,7 +58,22 @@ test('send message without message', async ({ page }) => {
   await page.goto('http://127.0.0.1:8000/');
 
   await page.getByLabel('Name').fill('John Doe');
-  await page.getByLabel('Email').fill('john.doe@example.com');
+  await page.getByRole('textbox', { name: 'Email' }).fill('john.doe@example.com');
+  await page.getByRole('checkbox', { name: 'Would you like to share your personal information with "Playgound EOOD"?' }).check();
+
+  // Click the send message button.
+  await page.getByRole('button', { name: 'Send message' }).click();
+
+  await expect(page).toHaveTitle(/Contact Us/);
+});
+
+test('send message without checbox', async ({ page }) => {
+  //TestCase is successful if the user is not able to send a message without filling the message field.
+  await page.goto('http://127.0.0.1:8000/');
+
+  await page.getByLabel('Name').fill('John Doe');
+  await page.getByRole('textbox', { name: 'Email' }).fill('john.doe@example.com');
+  await page.getByLabel('Message').fill('Hello, this is a test message');
 
   // Click the send message button.
   await page.getByRole('button', { name: 'Send message' }).click();
